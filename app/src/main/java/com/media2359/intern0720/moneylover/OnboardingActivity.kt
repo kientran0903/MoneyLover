@@ -49,13 +49,13 @@ class OnboardingActivity : AppCompatActivity() {
             }
         })
         btn_New_to_money_lover.setOnClickListener {
-            Intent(applicationContext, LoginActivity::class.java).also {
+            Intent(applicationContext, SignupActivity::class.java).also {
                 startActivity(it)
                 finish()
             }
         }
         btn_Already_have_account.setOnClickListener {
-            Intent(applicationContext, SignupActivity::class.java).also {
+            Intent(applicationContext, LoginActivity::class.java).also {
                 startActivity(it)
                 finish()
             }
