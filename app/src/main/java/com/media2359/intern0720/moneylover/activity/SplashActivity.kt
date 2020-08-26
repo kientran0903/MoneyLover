@@ -1,9 +1,10 @@
-package com.media2359.intern0720.moneylover
+package com.media2359.intern0720.moneylover.activity
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import com.media2359.intern0720.moneylover.R
 
 class SplashActivity : AppCompatActivity() {
     private val SPLASH_TIME_OUT: Long = 3000

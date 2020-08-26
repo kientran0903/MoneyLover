@@ -6,12 +6,12 @@
     android:layout_height="match_parent"
     android:background="@color/green_dark"
     android:orientation="horizontal"
-    tools:context=".SplashActivity">
+    tools:context=".activity.SplashActivity">
 
     <ImageView
         android:id="@+id/img_Logo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/deposit_1"
-        android:layout_gravity="center_vertical"/>
+        android:layout_gravity="center_vertical"
+        android:src="@drawable/deposit_1" />
 </LinearLayout>

@@ -8,4 +8,13 @@
     <string name="new_to_money_lover">NEW TO MONEY LOVER</string>
     <string name="already_have_account">ALREADY HAVE ACCOUNT</string>
     <string name="title">Title</string>
+
+    <string name="unknown_error">error</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="comfirm_password">Comfirm Password</string>
+    <string name="sign_up_button">SIGN UP</string>
+    <string name="already_have_account_signup">Already have account?</string>
+
 </resources>

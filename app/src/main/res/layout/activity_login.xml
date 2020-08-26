@@ -5,12 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
-    android:gravity="center_horizontal"
-    android:orientation="vertical"
-    tools:context=".LoginActivity">
+    tools:context=".activity.LoginActivity">
 
     <ImageButton
-        android:id="@+id/imgBtn_Back"
+        android:id="@+id/btnBack"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginStart="15dp"
@@ -20,22 +18,20 @@
         android:backgroundTint="@color/white" />
 
     <TextView
-        android:id="@+id/tv_SignIn"
-        android:layout_width="96dp"
-        android:layout_height="46dp"
-        android:layout_marginLeft="153dp"
+        android:id="@+id/tvSignIn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="124dp"
-        android:layout_marginRight="153dp"
-        android:gravity="bottom"
         android:text="@string/sign_in"
         android:textColor="@color/white"
         android:textSize="30dp" />
 
     <EditText
-        android:id="@+id/edit_text_email"
+        android:id="@+id/etEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/tv_SignIn"
+        android:layout_below="@id/tvSignIn"
         android:layout_marginStart="80dp"
         android:layout_marginTop="50dp"
         android:layout_marginEnd="80dp"
@@ -43,44 +39,57 @@
         android:hint="@string/email"
         android:inputType="textEmailAddress"
         android:padding="10dp"
-        android:textColorHint="@color/white" />
+        android:textColor="@color/white"
+        android:textColorHint="@color/grey"
+        tools:text="abc" />
 
-    <EditText
-        android:id="@+id/edit_text_password"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/edit_text_email"
+        android:layout_below="@id/etEmail"
         android:layout_marginStart="80dp"
+        app:boxStrokeWidth="0dp"
+        app:boxStrokeColor="@android:color/transparent"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="80dp"
-        android:background="@color/back_light"
-        android:hint="@string/password"
-        android:inputType="textPassword"
-        android:padding="10dp"
-        android:textColorHint="@color/white" />
+        app:hintEnabled="false"
+        app:passwordToggleEnabled="true">
+
+        <EditText
+            android:id="@+id/etPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/back_light"
+            android:hint="@string/password"
+            android:inputType="textPassword"
+            android:padding="10dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/grey" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/btn_SignIn"
+        android:id="@+id/btnSignIn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/edit_text_password"
+        android:layout_below="@id/textInput"
         android:layout_marginStart="80dp"
         android:layout_marginTop="30dp"
         android:layout_marginEnd="80dp"
-        android:background="@color/green_dark"
+        android:backgroundTint="@color/green_dark"
         android:padding="10dp"
         android:text="@string/sign_in_button"
         android:textColor="@color/white"
         android:textSize="22dp" />
 
     <TextView
-        android:id="@+id/Register"
+        android:id="@+id/btnRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/btn_SignIn"
-        android:layout_marginStart="180dp"
+        android:layout_below="@id/btnSignIn"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
         android:text="@string/register"
         android:textColor="@color/green_dark"
-        android:textSize="14dp" />
+        android:textSize="25dp" />
 </RelativeLayout>

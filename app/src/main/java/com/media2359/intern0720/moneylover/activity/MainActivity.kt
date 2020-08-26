@@ -1,7 +1,8 @@
-package com.media2359.intern0720.moneylover
+package com.media2359.intern0720.moneylover.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.media2359.intern0720.moneylover.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/green_dark"
-    tools:context=".Onboarding">
-
+    tools:context=".model.OnboardingItem">
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_New_to_money_lover"
