@@ -70,7 +70,7 @@ class SignupActivity : AppCompatActivity() {
                     }
                 })
             } else {
-                showToastMessage(R.string.erro_sign_up_confirm_password)
+                showToastMessage(R.string.error_sign_up_confirm_password)
             }
         }
 
