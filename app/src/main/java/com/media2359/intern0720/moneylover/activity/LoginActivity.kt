@@ -3,15 +3,18 @@ package com.media2359.intern0720.moneylover.activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
+import android.util.Log
+import com.google.gson.Gson
 import com.media2359.intern0720.moneylover.R
 import com.media2359.intern0720.moneylover.entity.AccountEntity
+import com.media2359.intern0720.moneylover.entity.ErrorEntity
 import com.media2359.intern0720.moneylover.entity.request.LoginRequest
 import com.media2359.intern0720.moneylover.network.AuthenticationService
 import com.media2359.intern0720.moneylover.network.MoneyLoverNetwork
+import com.media2359.intern0720.moneylover.utils.MoneyLoverUtils
 import com.media2359.intern0720.moneylover.utils.showToastMessage
 import kotlinx.android.synthetic.main.activity_login.*
-import kotlinx.android.synthetic.main.activity_signup.*
+import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -20,8 +23,6 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-        val authenticationService =
-            MoneyLoverNetwork.createService(AuthenticationService::class.java)
 
         btnBack.setOnClickListener {
             Intent(applicationContext, OnboardingActivity::class.java).also {
@@ -31,24 +32,31 @@ class LoginActivity : AppCompatActivity() {
         }
         btnSignIn.setOnClickListener {
             if (etEmail.text.toString().isEmpty()|| etPassword.text.toString().isEmpty()){
+
                 return@setOnClickListener
             }
-            val request = authenticationService.login(
+            val request = MoneyLoverUtils.authenticationService?.login(
                 loginRequest = LoginRequest(
                     email = etEmail.text.toString(),
                     password = etPassword.text.toString()
                 )
             )
-            request.enqueue(object : Callback<AccountEntity> {
+            request?.enqueue(object : Callback<AccountEntity> {
                 override fun onResponse(
                     call: Call<AccountEntity>,
                     response: Response<AccountEntity>
                 ) {
                     if (response.isSuccessful) {
+                        val token = response.body()?.token?.accessToken ?: ""
+                        MoneyLoverUtils.moneyLoverManager?.setAccessToken(token)
+
                         Intent(applicationContext, MainActivity::class.java).also {
                             startActivity(it)
                             finish()
                         }
+                    } else {
+                        val errorEntity = MoneyLoverNetwork.parseErrorBody(responseBody = response.errorBody())
+                        showToastMessage(errorEntity.message)
                     }
                 }
 

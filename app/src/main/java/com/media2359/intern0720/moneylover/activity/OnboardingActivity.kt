@@ -9,9 +9,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.view.get
 import androidx.viewpager2.widget.ViewPager2
-import com.media2359.intern0720.moneylover.model.OnboardingItem
 import com.media2359.intern0720.moneylover.ui.OnboardingAdapter
 import com.media2359.intern0720.moneylover.R
+import com.media2359.intern0720.moneylover.model.OnboardingItem
 import kotlinx.android.synthetic.main.activity_onboarding.*
 
 

@@ -1,8 +1,11 @@
 package com.media2359.intern0720.moneylover.network
 
 import android.util.Log
+import com.google.gson.Gson
 import com.media2359.intern0720.moneylover.BuildConfig
+import com.media2359.intern0720.moneylover.entity.ErrorEntity
 import okhttp3.OkHttpClient
+import okhttp3.ResponseBody
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -30,5 +33,10 @@ object MoneyLoverNetwork {
                 .build()
         }
         return retrofit?.create(service)!!
+    }
+
+    fun parseErrorBody(responseBody: ResponseBody?): ErrorEntity {
+        val errorEntity: ErrorEntity= Gson().fromJson(responseBody?.string(), ErrorEntity::class.java)
+        return errorEntity
     }
 }
