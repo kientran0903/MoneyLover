@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/itemJumpToDay"
+        android:title="@string/jump_to_day" />
+    <item
+        android:id="@+id/itemViewByTransaction"
+        android:title="@string/view_by_transaction"/>
+    <item
+        android:id="@+id/itemSreacForTransaction"
+        android:title="@string/search_for_transaction"/>
+</menu>

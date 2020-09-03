@@ -16,5 +16,12 @@
     <string name="confirm_password">Confirm Password</string>
     <string name="sign_up_button">SIGN UP</string>
     <string name="already_have_account_signup">Already have account?</string>
+    <string name="error_sign_up_confirm_password">The confirmed password should be the same as password.</string>
+    <string name="transactions">Transactions</string>
+    <string name="account">Account</string>
+    <string name="plus">+</string>
+    <string name="jump_to_day">Jump to day</string>
+    <string name="view_by_transaction">View by transaction</string>
+    <string name="search_for_transaction">Search for transaction</string>
 
 </resources>
