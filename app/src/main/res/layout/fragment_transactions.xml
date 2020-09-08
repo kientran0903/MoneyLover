@@ -7,8 +7,9 @@
     tools:context=".fragment.TransactionsFragment">
 
     <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarTransaction"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
+        android:layout_height="wrap_content"
         android:background="@color/black"
         app:menu="@menu/menu_main"
         app:navigationIcon="@drawable/user">
@@ -16,17 +17,27 @@
         <TextView
             android:id="@+id/tvUsername"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:gravity="center"
             android:textColor="@color/grey"
-            tools:text="User's Full Name" />
+            android:text="User's Full Name" />
+
 
     </androidx.appcompat.widget.Toolbar>
 
-    <TextView
-        android:layout_width="wrap_content"
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="@string/transactions" />
+        app:tabGravity="start"
+        app:tabMode="scrollable"
+        android:layout_below="@id/toolbarTransaction"/>
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewPagerTransaction"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/tabLayout">
+    </androidx.viewpager2.widget.ViewPager2>
 
 </RelativeLayout>

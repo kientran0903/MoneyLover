@@ -23,5 +23,6 @@
     <string name="jump_to_day">Jump to day</string>
     <string name="view_by_transaction">View by transaction</string>
     <string name="search_for_transaction">Search for transaction</string>
+    <string name="no_transactions">No Transactions</string>
 
 </resources>
