@@ -8,6 +8,7 @@ class MoneyLoverApplication : Application(){
         super.onCreate()
 
         MoneyLoverUtils.createAuthenticationService()
+        MoneyLoverUtils.createTransactionService()
         MoneyLoverUtils.createMoneyLoverManager(this)
     }
 }

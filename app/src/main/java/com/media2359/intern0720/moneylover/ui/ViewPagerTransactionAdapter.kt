@@ -1,6 +1,5 @@
 package com.media2359.intern0720.moneylover.ui
 
-import android.content.Context
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter

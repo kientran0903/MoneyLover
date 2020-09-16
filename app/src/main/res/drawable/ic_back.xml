@@ -3,7 +3,7 @@
     android:height="30dp"
     android:viewportWidth="30"
     android:viewportHeight="30"
-    android:tint="?attr/colorControlNormal">
+    android:tint="@color/white">
   <group>
     <path
       android:fillColor="@android:color/white"
