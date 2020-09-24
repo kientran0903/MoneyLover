@@ -36,5 +36,7 @@
     <string name="income">Income</string>
     <string name="back">Back</string>
     <string name="log_out">LOG OUT</string>
+    <string name="inflow">Inflow</string>
+    <string name="outflow">Outflow</string>
 
 </resources>
