@@ -1,18 +1,14 @@
 package com.media2359.intern0720.moneylover.activity
 
-import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import android.widget.ImageView
-import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.media2359.intern0720.moneylover.R
 import com.media2359.intern0720.moneylover.model.CategoryItem
-import com.media2359.intern0720.moneylover.ui.ExpenseAdapter
+import com.media2359.intern0720.moneylover.ui.CategoriesAdapter
 import kotlinx.android.synthetic.main.activity_select_category.*
-import kotlinx.android.synthetic.main.category_item.*
 
 
 class SelectCategoryActivity : AppCompatActivity() {
@@ -25,19 +21,19 @@ class SelectCategoryActivity : AppCompatActivity() {
     }
 
     private var categoryType : String = CATEGORY_TYPE_EXPENSE
-    private lateinit var expenseAdapter: ExpenseAdapter
+    private lateinit var categoriesAdapter: CategoriesAdapter
      private val expense = listOf(
-        CategoryItem(R.drawable.bill, "Bills & Utilities"),
-        CategoryItem(R.drawable.truck, "Transportation"),
-        CategoryItem(R.drawable.plate, "Food & Drink"),
-        CategoryItem(R.drawable.money, "Others")
+        CategoryItem(R.drawable.bill, "RESTAURANT"),
+        CategoryItem(R.drawable.truck, "TRANSPORTATION"),
+        CategoryItem(R.drawable.plate, "SHOPPING"),
+        CategoryItem(R.drawable.money, "OTHERS")
     )
 
     private val income = listOf(
-        CategoryItem(R.drawable.salary, "Salary"),
-        CategoryItem(R.drawable.gift, "Award/Gift"),
-        CategoryItem(R.drawable.price, "Sell"),
-        CategoryItem(R.drawable.money, "Others")
+        CategoryItem(R.drawable.salary, "SALARY"),
+        CategoryItem(R.drawable.gift, "FREELANCE"),
+        CategoryItem(R.drawable.price, "INVESTMENT"),
+        CategoryItem(R.drawable.money, "OTHERS")
     )
 
     private fun show(item: CategoryItem ) {
@@ -45,18 +41,17 @@ class SelectCategoryActivity : AppCompatActivity() {
     }
 
     private fun notifyDataSet() {
-        expenseAdapter = ExpenseAdapter(expense)
+        categoriesAdapter = CategoriesAdapter(expense)
 //        incomeAdapter = IncomeAdapter(income)
-        recyclerSelectTransaction.adapter = expenseAdapter
+        recyclerSelectTransaction.adapter = categoriesAdapter
 //        recyclerSelectTransaction.adapter = incomeAdapter
         recyclerSelectTransaction.layoutManager = LinearLayoutManager(this)
 //        recyclerSelectTransaction.setHasFixedSize(true)
 
-        expenseAdapter.itemClickListener = { position, item -> show(item)
+        categoriesAdapter.itemClickListener = { position, item -> show(item)
             val returnIntent = Intent()
-            val returnType = Intent()
             returnIntent.putExtra(KEY_CATEGORY_NAME, item.name)
-            returnType.putExtra(KEY_CATEGORY_TYPE, categoryType)
+            returnIntent.putExtra(KEY_CATEGORY_TYPE, categoryType)
             setResult(RESULT_OK, returnIntent)
             finish()
         }
@@ -70,12 +65,12 @@ class SelectCategoryActivity : AppCompatActivity() {
         notifyDataSet()
 
         btnExpense.setOnClickListener {
-            expenseAdapter.setList(expense)
+            categoriesAdapter.setList(expense)
             categoryType = CATEGORY_TYPE_EXPENSE
         }
 
         btnIncome.setOnClickListener {
-            expenseAdapter.setList(income)
+            categoriesAdapter.setList(income)
             categoryType = CATEGORY_TYPE_INCOME
         }
 

@@ -9,13 +9,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.media2359.intern0720.moneylover.R
 import com.media2359.intern0720.moneylover.model.CategoryItem
 
-class ExpenseAdapter(var items: List<CategoryItem>) :
-    RecyclerView.Adapter<ExpenseAdapter.MyViewHolder>() {
+class CategoriesAdapter(var items: List<CategoryItem>) :
+    RecyclerView.Adapter<CategoriesAdapter.MyViewHolder>() {
     var itemClickListener: ((position: Int, name: CategoryItem) -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val itemView =
-            LayoutInflater.from(parent.context).inflate(R.layout.category_item, parent, false)
+            LayoutInflater.from(parent.context).inflate(R.layout.item_category, parent, false)
         return MyViewHolder(itemView)
     }
 

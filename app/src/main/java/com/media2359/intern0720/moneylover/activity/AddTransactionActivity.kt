@@ -112,13 +112,12 @@ class AddTransactionActivity : AppCompatActivity() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-
         if (requestCode == SECOND_ACTIVITY_REQUEST_CODE) {
             if (resultCode == Activity.RESULT_OK) {
                 val returnString = data!!.getStringExtra(KEY_CATEGORY_NAME)
                 tvSelectCategory.setText("" + returnString)
-                type = data!!.getStringExtra(KEY_CATEGORY_TYPE)
 
+                type = data.getStringExtra(KEY_CATEGORY_TYPE)
             }
         }
     }
