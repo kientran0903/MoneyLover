@@ -13,7 +13,7 @@ class OnboardingAdapter(private val onboardings: List<OnboardingItem>) :
     RecyclerView.Adapter<OnboardingAdapter.OnboardingViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OnboardingViewHolder {
         return OnboardingViewHolder(
-            LayoutInflater.from(parent.context).inflate(R.layout.onboarding_item, parent, false)
+            LayoutInflater.from(parent.context).inflate(R.layout.item_onboarding, parent, false)
         )
     }
 

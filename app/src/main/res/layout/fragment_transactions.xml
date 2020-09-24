@@ -19,8 +19,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:textColor="@color/grey"
-            android:text="User's Full Name" />
+            android:text="User's Full Name"
+            android:textColor="@color/grey" />
 
 
     </androidx.appcompat.widget.Toolbar>
@@ -29,15 +29,16 @@
         android:id="@+id/tabLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/black"
+        android:layout_below="@id/toolbarTransaction"
+        app:tabTextColor="@color/selector_tablayout"
         app:tabGravity="start"
-        app:tabMode="scrollable"
-        android:layout_below="@id/toolbarTransaction"/>
+        app:tabMode="scrollable" />
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/viewPagerTransaction"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/tabLayout">
-    </androidx.viewpager2.widget.ViewPager2>
+        android:layout_below="@id/tabLayout" />
 
 </RelativeLayout>

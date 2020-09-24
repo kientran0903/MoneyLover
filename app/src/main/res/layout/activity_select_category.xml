@@ -58,7 +58,7 @@
             android:text="@string/income"
             android:textColor="@color/white"
             android:textAllCaps="false"
-            android:backgroundTint="!@color/selector_category"/>
+            android:backgroundTint="@color/selector_category"/>
 
 
     </LinearLayout>

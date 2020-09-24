@@ -12,9 +12,7 @@
         android:roundIcon="@mipmap/ic_app_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-<!--        <activity android:name=".fragment.ExpenseFragment" />-->
-        <activity android:name=".activity.SelectCategoryActivity" />
-        <activity android:name=".activity.SignupActivity" />
+
         <activity
             android:name=".activity.SplashActivity"
             android:theme="@style/AppTheme.NoActionBar">
@@ -26,8 +24,10 @@
         </activity>
         <activity android:name=".activity.OnboardingActivity" />
         <activity android:name=".activity.LoginActivity" />
+        <activity android:name=".activity.SignupActivity" />
         <activity android:name=".activity.MainActivity" />
         <activity android:name=".activity.AddTransactionActivity" />
+        <activity android:name=".activity.SelectCategoryActivity" />
     </application>
 
 </manifest>
