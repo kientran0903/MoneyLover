@@ -19,7 +19,7 @@ class MoneyLoverManager(context: Context) {
 
     fun setAccessToken(token: String) {
         val editor: SharedPreferences.Editor = sharePref?.edit() ?: return
-        editor.putString(ACCESS_TOKEN_KEY, token)
+        editor.putString(ACCESS_TOKEN_KEY, "Bearer $token")
         editor.apply()
     }
 }
