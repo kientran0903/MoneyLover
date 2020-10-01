@@ -5,22 +5,18 @@ import android.app.DatePickerDialog
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.view.View
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isEmpty
 import com.media2359.intern0720.moneylover.R
 import com.media2359.intern0720.moneylover.activity.SelectCategoryActivity.Companion.KEY_CATEGORY_NAME
 import com.media2359.intern0720.moneylover.activity.SelectCategoryActivity.Companion.KEY_CATEGORY_TYPE
-import com.media2359.intern0720.moneylover.entity.AccountEntity
 import com.media2359.intern0720.moneylover.entity.TransactionResponse
 import com.media2359.intern0720.moneylover.entity.request.AddTransactionRequest
 import com.media2359.intern0720.moneylover.network.MoneyLoverNetwork
-import com.media2359.intern0720.moneylover.utils.MoneyLoverManager
 import com.media2359.intern0720.moneylover.utils.MoneyLoverUtils
 import com.media2359.intern0720.moneylover.utils.showToastMessage
-import kotlinx.android.synthetic.main.add_transaction.*
+import kotlinx.android.synthetic.main.fragment_add_transaction.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -33,7 +29,7 @@ class AddTransactionActivity : AppCompatActivity() {
     lateinit var type : String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.add_transaction)
+        setContentView(R.layout.fragment_add_transaction)
 
         btnCancel.setOnClickListener {
             Intent(applicationContext, MainActivity::class.java).also {
@@ -50,14 +46,13 @@ class AddTransactionActivity : AppCompatActivity() {
                 val requestCreateTransaction =
                     MoneyLoverUtils.moneyLoverManager?.getAccessToken()?.let { it1 ->
                         MoneyLoverUtils.transactionService?.createTransaction(
-                            createTransaction = AddTransactionRequest(
+                            it1, AddTransactionRequest(
                                 type = type,
                                 category = tvSelectCategory.text.toString(),
                                 amount = etAmount.text.toString().toInt(),
                                 description = etNote.text.toString(),
-                                date = "2020-08-20T07:00:00.00Z"
+                                date = tvDate.text.toString()
                             ),
-                            token = it1
                         )
                     }
                 requestCreateTransaction?.enqueue(object : Callback<TransactionResponse> {
@@ -65,8 +60,9 @@ class AddTransactionActivity : AppCompatActivity() {
                         call: Call<TransactionResponse>,
                         response: Response<TransactionResponse>
                     ) {
+                        Log.e("TAG", "onResponse: ", )
                         if (response.isSuccessful) {
-                            Log.i("TAG", "onResponse: ") showToastMessage ("Add Transaction Success")
+                            showToastMessage("Add Transaction Success")
                             finish()
                         } else {
                             val errorEntity =
@@ -74,8 +70,8 @@ class AddTransactionActivity : AppCompatActivity() {
                             showToastMessage(errorEntity.message)
                         }
                     }
-
                     override fun onFailure(call: Call<TransactionResponse>, t: Throwable) {
+                        Log.e("TAG", "onFailure: ", )
                         showToastMessage(t.message)
                     }
                 })
@@ -115,7 +111,7 @@ class AddTransactionActivity : AppCompatActivity() {
         if (requestCode == SECOND_ACTIVITY_REQUEST_CODE) {
             if (resultCode == Activity.RESULT_OK) {
                 val returnString = data!!.getStringExtra(KEY_CATEGORY_NAME)
-                tvSelectCategory.setText("" + returnString)
+                tvSelectCategory.text = "" + returnString
 
                 type = data.getStringExtra(KEY_CATEGORY_TYPE)
             }
