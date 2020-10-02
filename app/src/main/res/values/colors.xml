@@ -15,4 +15,6 @@
     <color name="red">#E93131</color>
     <color name="hint_add_transaction">#80939393</color>
     <color name="Save_unselected">#939393</color>
+    <color name="Inflow">#039BE5</color>
+    <color name="Outflow">#E55A5A</color>
 </resources>
